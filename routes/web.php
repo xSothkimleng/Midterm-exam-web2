@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArtCraftController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,5 +37,8 @@ Route::get('/products', function () {
 Route::get('/form', function () {
     return view('form.index');
 });
+
+Route::post('form-create',[ArtCraftController::class, 'create']);
+
 
 
