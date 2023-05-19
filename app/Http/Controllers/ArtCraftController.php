@@ -13,7 +13,8 @@ class ArtCraftController extends Controller
      */
     public function index()
     {
-        //
+        $artCraft = ArtCraft::all();
+        return view ('form.index')->with('artCraft', $artCraft);
     }
 
     /**
@@ -58,7 +59,10 @@ class ArtCraftController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        return view('form.edit',[
+            'item'=> ArtCraft::findOrFail($id)
+        ]);
     }
 
     /**
@@ -70,7 +74,11 @@ class ArtCraftController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $artCraft = ArtCraft::find($id);
+        $input = $request->all();
+        $artCraft->update($input);
+        return redirect('/form')->with('flash_message', 'Contact Updated!');  
+
     }
 
     /**
@@ -81,6 +89,7 @@ class ArtCraftController extends Controller
      */
     public function destroy($id)
     {
-        //
+        ArtCraft::destroy($id);
+        return redirect('/form')->with('flash_message', 'Contact deleted!');  
     }
 }

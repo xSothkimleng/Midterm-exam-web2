@@ -37,49 +37,50 @@
         </div>
         <hr/>
         <div class="pd-3">
-            <form class="row" action="{{ url('form-create') }}" method="POST">
-                @csrf
+            <form class="row" action="{{ url('update/' .$item->id) }}" method="POST">
+            {!! csrf_field() !!}
+            @method("PATCH")
                 <div class="mb-3 col-6">
                     <label for="full_name" class="form-label label">Full name</label>
-                    <input name="full_name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                    <input name="full_name" value="{{ $item->full_name }}" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                     <div id="emailHelp" class="form-text">First Name</div>
                 </div>
                 <div class="mb-3 col-6">
                     <label for="last_name" class="form-label label">&nbsp;</label>
-                    <input name="last_name" type="text" class="form-control" id="exampleInputtext1" required>
+                    <input name="last_name" value="{{ $item->last_name }}" type="text" class="form-control" id="exampleInputtext1">
                     <div id="emailHelp" class="form-text">Last name</div>
                 </div>
                 <div class="mb-3 col-12">
                     <label for="company_name" class="form-label label">Company Name</label>
-                    <input name="company_name" type="text" class="form-control" id="exampleInputtext1" required>
+                    <input name="company_name" value="{{ $item->company_name }}" type="text" class="form-control" id="exampleInputtext1">
                 </div>
                 <div class="mb-3 col-12">
                     <label for="email" class="form-label label">E-mail</label>
-                    <input name="email" type="email" class="form-control" id="exampleInputtext1" required>
+                    <input name="email" value="{{ $item->email }}" type="email" class="form-control" id="exampleInputtext1">
                     <div id="emailHelp" class="form-text">sothkimleng@gmail.com</div>
                 </div>
                 <div class="mb-3 col-12">
-                    <input name="street_address" type="text" class="form-control label" id="exampleInputtext1" required>
+                    <input name="street_address" value="{{ $item->street_address }}" type="text" class="form-control label" id="exampleInputtext1">
                     <div id="emailHelp" class="form-text">Street Address</div>
                 </div>
                 <div class="mb-3 col-12">
-                    <input name="street_address_2" type="text" class="form-control" id="exampleInputtext1" required>
+                    <input name="street_address_2" value="{{ $item->street_address_2 }}" type="text" class="form-control" id="exampleInputtext1">
                     <div id="emailHelp" class="form-text">Street Address Line 2</div>
                 </div>
                 <div class="mb-3 col-6">
-                    <input name="city" type="text" class="form-control" id="exampleInputtext1" required>
+                    <input name="city" value="{{ $item->city }}" type="text" class="form-control" id="exampleInputtext1">
                     <div id="emailHelp" class="form-text">City</div>
                 </div>
                 <div class="mb-3 col-6">
-                    <input name="state_province" type="text" class="form-control" id="exampleInputtext1" required>
+                    <input name="state_province" value="{{ $item->state_province }}" type="text" class="form-control" id="exampleInputtext1">
                     <div id="emailHelp" class="form-text">State / Province</div>
                 </div>
                 <div class="mb-3 col-6">
-                    <input name="postal_code" type="text" class="form-control" id="exampleInputtext1" required>
+                    <input name="postal_code" value="{{ $item->postal_code }}" type="text" class="form-control" id="exampleInputtext1">
                     <div id="emailHelp" class="form-text">Postal / Zip code</div>
                 </div>
                 <div class="mb-3 col-6">
-                    <input name="country" type="text" class="form-control" id="exampleInputtext1" required>
+                    <input name="country" value="{{ $item->country }}" type="text" class="form-control" id="exampleInputtext1">
                     <div id="emailHelp" class="form-text">Country</div>
                 </div>
                 <div class="mb-3">
@@ -98,7 +99,7 @@
                 <div class="mb-3">
                     <label for="description" class="form-label label">Description of your products</label>
                     <div class="form-floating">
-                        <textarea required name="description" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"></textarea>
+                        <textarea name="description"  class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px">{{ $item->description }}</textarea>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>

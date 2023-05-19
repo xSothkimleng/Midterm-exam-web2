@@ -34,11 +34,12 @@ Route::get('/products', function () {
     return view('products');
 });
 
-Route::get('/form', function () {
-    return view('form.index');
-});
-
+Route::get('/form-create',function(){return view('form.create');});
+Route::get('edit/{id}',[ArtCraftController::class,'edit']);
+Route::patch('update/{id}',[ArtCraftController::class,'update']);
 Route::post('form-create',[ArtCraftController::class, 'create']);
+Route::delete('form-delete/{id}',[ArtCraftController::class, 'destroy']);
+Route::get('/form',[ArtCraftController::class,'index']);
 
 
 
